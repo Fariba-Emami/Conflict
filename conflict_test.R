@@ -33,3 +33,5 @@ ggplot(mtcars, aes(x = hp, y = mpg, color = cyl_factor)) +
          y = "Miles Per Gallon (MPG)",
          color = "Cylinders") +
     theme_minimal()
+
+print("OK, so this was written by Arpad.")
