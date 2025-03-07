@@ -3,6 +3,7 @@ library(ggplot2)
 library(dplyr)
 
 # Load the mtcars dataset
+print("Arpad has changed this file.")
 data("mtcars")
 
 # Data manipulation: Add a factor column for cylinders
@@ -15,6 +16,14 @@ summary_table <- mtcars %>%
     summarise(mean_mpg = mean(mpg, na.rm = TRUE))
 
 print(summary_table)
+
+print("...but before plotting, let's see some text from Arpad...")
+
+print("Lorem ipsum...")
+
+list <- c("Belfast", "Bonn", "Bucharest")
+
+print(list)
 
 # Plot
 ggplot(mtcars, aes(x = hp, y = mpg, color = cyl_factor)) +
