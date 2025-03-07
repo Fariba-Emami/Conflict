@@ -28,6 +28,7 @@ list <- c("Belfast", "Bonn", "Bucharest")
 print(list)
 
 # Plot
+
 ggplot(mtcars, aes(x = cyl_factor, y = mpg, fill = cyl_factor)) +
     geom_boxplot(alpha = 0.7) +
     labs(title = "MPG Distribution by Cylinder Count",
