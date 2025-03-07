@@ -1,4 +1,6 @@
 # Load necessary libraries
+install.packages("ggplot2")
+install.packages("dplyr")
 library(ggplot2)
 library(dplyr)
 
@@ -10,10 +12,10 @@ data("mtcars")
 mtcars <- mtcars %>%
     mutate(cyl_factor = factor(cyl, levels = c(4, 6, 8), labels = c("4 Cyl", "6 Cyl", "8 Cyl")))
 
-# Summarize the dataset: Calculate mean MPG by cylinder category
+# Summarize the dataset: Calculate mean MPG and HP by cylinder category
 summary_table <- mtcars %>%
     group_by(cyl_factor) %>%
-    summarise(mean_mpg = mean(mpg, na.rm = TRUE))
+    summarise(avg_mpg = mean(mpg, na.rm = TRUE), avg_hp = mean(hp, na.rm = TRUE))
 
 print(summary_table)
 
@@ -26,12 +28,16 @@ list <- c("Belfast", "Bonn", "Bucharest")
 print(list)
 
 # Plot
-ggplot(mtcars, aes(x = hp, y = mpg, color = cyl_factor)) +
-    geom_point(size = 3, alpha = 0.7) +
-    labs(title = "MPG vs. Horsepower",
-         x = "Horsepower (HP)",
-         y = "Miles Per Gallon (MPG)",
-         color = "Cylinders") +
+
+ggplot(mtcars, aes(x = cyl_factor, y = mpg, fill = cyl_factor)) +
+    geom_boxplot(alpha = 0.7) +
+    labs(title = "MPG Distribution by Cylinder Count",
+         x = "Cylinders",
+         y = "Miles Per Gallon (MPG)") +
     theme_minimal()
 
-print("OK, so this was written by Arpad.")
+
+print("this is the latest version of the code")
+
+
+
